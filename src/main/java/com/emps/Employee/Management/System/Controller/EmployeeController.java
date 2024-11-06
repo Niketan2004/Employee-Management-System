@@ -14,6 +14,7 @@ public class EmployeeController {
     public EmployeeController(EmployeeService theEmpService) {
         employeeService = theEmpService;
     }
+    // this controller will redirect employee to the dashboard
     @GetMapping("/employee/")
     public String dashboardRedirect() {
         return "redirect:/dashboard";
