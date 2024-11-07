@@ -1,11 +1,37 @@
 <!DOCTYPE html>
-<html lang="en" xmlns: th="www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Login Form</title>
-
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+<a th:href="@{/showForm}" class="btn btn-primary">Add Employee</a>
+<table class="table">
+    <thead>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Mobile Number</th>
+        <th>Role</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="emp : ${employees}">
+        <td th:text="${emp.firstName}"></td>
+        <td th:text="${emp.lastName}"></td>
+        <td th:text="${emp.email}"></td>
+        <td th:text="${emp.mobNumber}"></td>
+        <td th:text="${emp.role}"></td>
+        <td>
+            <a th:href="@{/showForm(employeeId=${emp.id})}" class="btn btn-info">Update</a>
+            <a th:href="@{/delete(employeeId=${emp.id})}" class="btn btn-danger"
+               onclick="return confirm('Are you sure you want to delete this employee?')">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

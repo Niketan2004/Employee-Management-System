@@ -1,11 +1,32 @@
 <!DOCTYPE html>
-<html lang="en" xmlns: th="www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Login Form</title>
-
+    <title>SignUp Form</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+<h1>WELCOME TO EMPLOYEE MANAGEMENT SYSTEM</h1>
+<h2>PLEASE ENTER YOUR DETAILS</h2>
+<form th:action="@{/signup}" th:object="${employee}" method="POST">
+    <label>First Name:</label>
+    <input type="text" th:field="*{firstName}" placeholder="Enter Your First Name" required/><br>
+    <label>Last Name:</label>
+    <input type="text" th:field="*{lastName}" placeholder="Enter Your Last Name" required/><br>
+    <label>Email:</label>
+    <input type="email" th:field="*{email}" placeholder="Enter Your Email" required/><br>
+    <label>Mobile Number:</label>
+    <input type="number" th:field="*{mobNumber}" placeholder="Enter Your Mobile Number" required/><br>
+    <label>Role:</label>
+    <select name="role" id="role" th:field="*{role}" required>
+        <option value="0">Employee</option>
+        <option value="1">Manager</option>
+        <option value="2">Admin</option>
+    </select><br>
+    <label>Password:</label>
+    <input type="password" th:field="*{password}" placeholder="Enter Your Password" required/><br>
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+</form>
 </body>
 </html>

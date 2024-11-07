@@ -1,13 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" xmlns: th="www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Login Form</title>
-
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1> WELCOME TO EMPLOYEE MANAGEMENT SYSTEM PROJECT</h1><br>
-<h2> Please Enter Your Credentials to Login</h2><br>
-<input type="text">
+<h1>WELCOME TO EMPLOYEE MANAGEMENT SYSTEM PROJECT</h1>
+<h2>Please Enter Your Credentials to Login</h2>
+<form th:action="@{/login}" th:object="${employee}" method="POST">
+    <label>Email:</label>
+    <input type="email" th:field="*{email}" placeholder="Enter Your Email" required/><br>
+    <label>Password:</label>
+    <input type="password" th:field="*{password}" placeholder="Enter Your Password" required/><br>
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+</form>
 </body>
 </html>
