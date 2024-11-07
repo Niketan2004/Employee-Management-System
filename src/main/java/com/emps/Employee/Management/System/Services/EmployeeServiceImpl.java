@@ -24,11 +24,11 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeRepo.findById(id);
     }
 
-    @Override
-    public Employee fetchEmployee(String email, String password) {
-       return employeeRepo.getEmployeeByUserName(email);
-        //return employeeRepo.findById(id);
-    }
+//    @Override
+//    public Employee fetchEmployee(String email, String password) {
+//       return employeeRepo.getEmployeeByUserName(email);
+//        //return employeeRepo.findById(id);
+//    }
 
 
 

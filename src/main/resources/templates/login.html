@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Login Form</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
 <h1>WELCOME TO EMPLOYEE MANAGEMENT SYSTEM PROJECT</h1>
 <h2>Please Enter Your Credentials to Login</h2>
 <form th:action="@{/login}" th:object="${employee}" method="POST">
+    <h2>LOGIN</h2>
     <label>Email:</label>
     <input type="email" th:field="*{email}" placeholder="Enter Your Email" required/><br>
     <label>Password:</label>

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/employee")
 public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
@@ -14,11 +15,9 @@ public class EmployeeController {
     public EmployeeController(EmployeeService theEmpService) {
         employeeService = theEmpService;
     }
-    // this controller will redirect employee to the dashboard
-    @GetMapping("/employee/")
+
+    @GetMapping("/")
     public String dashboardRedirect() {
-        return "redirect:/dashboard";
+        return "redirect:/emps/dashboard";
     }
-
-
 }
