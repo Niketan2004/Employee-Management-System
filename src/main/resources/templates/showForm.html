@@ -3,32 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Add Employee</title>
-    <link rel="stylesheet" href="/static/style.css">
 </head>
-<body>
-<h2 th:text="${employee.id == null ? 'Add New Employee' : 'Edit Employee'}"></h2>
+<body style="font-family: Arial, sans-serif; background-color: #f9f9f9; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">
 
-<form th:action="@{/manager}" th:object="${employee}" method="POST">
-    <h2 style="align-center"> Enter Details OF Employee</h2>
+<h2 th:text="${employee.id == null ? 'Add New Employee' : 'Edit Employee'}" style="text-align: center; color: #333; font-size: 1.5em;"></h2>
+
+<form th:action="@{/manager/save}" th:object="${employee}" method="POST" style="width: 100%; max-width: 500px; padding: 20px; background-color: #ffffff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 8px;">
+
+    <h2 style="text-align: center; color: #007bff; font-size: 1.5em;">Enter Details of Employee</h2>
+
     <input type="hidden" th:field="*{id}" />
-    <label>First Name:</label>
-    <input type="text" th:field="*{firstName}" placeholder="Enter Your First Name" required/><br>
-    <label>Last Name:</label>
-    <input type="text" th:field="*{lastName}" placeholder="Enter Your Last Name" required/><br>
-    <label>Email:</label>
-    <input type="email" th:field="*{email}" placeholder="Enter Your Email" required/><br>
-    <label>Mobile Number:</label>
-    <input type="number" th:field="*{mobNumber}" placeholder="Enter Your Mobile Number" required/><br>
-    <label>Role:</label>
-    <select name="role" id="role" th:field="*{role}" required>
+
+    <label style="display: block; margin-top: 15px; color: #333;">First Name:</label>
+    <input type="text" th:field="*{firstName}" placeholder="Enter Your First Name" required style="width: 100%; padding: 8px; margin-top: 5px; border-radius: 4px; border: 1px solid #ddd;"/>
+
+    <label style="display: block; margin-top: 15px; color: #333;">Last Name:</label>
+    <input type="text" th:field="*{lastName}" placeholder="Enter Your Last Name" required style="width: 100%; padding: 8px; margin-top: 5px; border-radius: 4px; border: 1px solid #ddd;"/>
+
+    <label style="display: block; margin-top: 15px; color: #333;">Email:</label>
+    <input type="email" th:field="*{email}" placeholder="Enter Your Email" required style="width: 100%; padding: 8px; margin-top: 5px; border-radius: 4px; border: 1px solid #ddd;"/>
+
+    <label style="display: block; margin-top: 15px; color: #333;">Mobile Number:</label>
+    <input type="number" th:field="*{mobNumber}" placeholder="Enter Your Mobile Number" required style="width: 100%; padding: 8px; margin-top: 5px; border-radius: 4px; border: 1px solid #ddd;"/>
+
+    <label style="display: block; margin-top: 15px; color: #333;">Role:</label>
+    <select name="role" id="role" th:field="*{role}" required style="width: 100%; padding: 8px; margin-top: 5px; border-radius: 4px; border: 1px solid #ddd;">
         <option value="0">Employee</option>
         <option value="1">Manager</option>
         <option value="2">Admin</option>
-    </select><br>
-    <label>Password:</label>
-    <input type="password" th:field="*{password}" placeholder="Enter Your Password" required/><br>
-    <input type="submit" value="Submit">
-    <input type="reset" value="Reset">
+    </select>
+
+    <label style="display: block; margin-top: 15px; color: #333;">Password:</label>
+    <input type="password" th:field="*{password}" placeholder="Enter Your Password" required style="width: 100%; padding: 8px; margin-top: 5px; border-radius: 4px; border: 1px solid #ddd;"/>
+
+    <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+        <input type="submit" value="Submit" style="background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;"/>
+        <input type="reset" value="Reset" style="background-color: #dc3545; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;"/>
+    </div>
 </form>
+
 </body>
 </html>

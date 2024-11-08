@@ -13,18 +13,19 @@ import lombok.NoArgsConstructor;
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name ="emp_id")
     private long id;
 
-    @Column(nullable = false)
+    @Column(name = "first_Name", nullable = false)
     private String firstName;
 
-    @Column(nullable = false)
+    @Column(name = "last_Name", nullable = false)
     private String lastName;
 
     @Column(unique = true, nullable = false)
     private String email;
 
-    @Column(unique = true, nullable = false)
+    @Column(name = "mob_Number", unique = true, nullable = false)
     private String mobNumber;
 
     @Column(nullable = false)
